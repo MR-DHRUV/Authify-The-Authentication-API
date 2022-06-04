@@ -1,0 +1,30 @@
+.myImg {
+  display: flex;
+  justify-content: center;
+}
+.myh1 {
+  color: rgba(0, 0, 0, 0.28) !important;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  height: 87vh;
+}
+.main {
+  font-weight: 650;
+}
+body {
+  height: 100vh;
+  padding: 1rem;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: #e45853;
+}
+.foot-logo {
+  height: 100px;
+}

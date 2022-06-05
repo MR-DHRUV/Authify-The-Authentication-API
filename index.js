@@ -133,9 +133,9 @@ app.use(cors());
 app.use(express.json());
 
 // Available routes
-app.use('/api/auth', require('./routes/auth.js'))
-app.use('/api/notes', require('./routes/notes.js'));
-app.use('/api/fogotpassword', require('./routes/forgotpass.js'));
+app.use('/auth', require('./routes/auth.js'))
+app.use('/notes', require('./routes/notes.js'));
+app.use('/fogotpassword', require('./routes/forgotpass.js'));
 // app.use('/api/auth/google',require('./routes/google'));
 
 app.get('/auth/google',
@@ -161,7 +161,7 @@ app.get('/auth/google/hello',
 );
 
 
-app.put('/googlecontext/:id', async (req, res) => {
+app.put('/auth/googlecontext/:id', async (req, res) => {
     googlecontextInit = req.params.id.substring(1);
     console.log(googlecontextInit);
     res.json({ success: true, uri: googlecontextInit });
@@ -181,7 +181,7 @@ app.get('/hello', async (req, res) => {
 
 const uriRender = (muri) => {
 
-    return app.get(`/gauth/${muri}`, async (req, res) => {
+    return app.get(`/auth/g/user/${muri}`, async (req, res) => {
 
         if (myToken) {
             const authToken = myToken;

@@ -1,7 +1,6 @@
 # Authify : The Authentication API
-
-Secure
-Complete Authenticaation solution
+Complete Authentication solution
+**Website** :  https://api-authify.herokuapp.com/
 
 ## Features
 

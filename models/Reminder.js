@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const NotesSchema = new mongoose.Schema({
+const ReminderSchema = new mongoose.Schema({
 
     user : {
         type : mongoose.Schema.Types.ObjectId,
@@ -16,13 +16,9 @@ const NotesSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
-    tag : {
+    timeToRemind : {
         type : String,
-        default : "general"
-    },
-    reminder : {
-        type : String,
-        default : null
+        required : true
     },
     date : {
         type : Date,
@@ -31,4 +27,4 @@ const NotesSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('notes',NotesSchema);
+module.exports = mongoose.model('reminder',ReminderSchema);

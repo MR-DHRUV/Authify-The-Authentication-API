@@ -6,7 +6,7 @@ const User = require('../models/User')
 const { body, validationResult } = require('express-validator');
 const PassValidator = require('../models/Forgotpass')
 const bcrypt = require('bcryptjs');
-
+const authifyMailer = require('./authifyMailer')
 
 let authCodeCheck;
 
@@ -33,8 +33,7 @@ Router.post('/', [
         // console.log(trashCode);
 
 
-        const mailPass = process.env.EMAIL_PASS1;
-        console.log(mailPass);
+        const mailPass = process.env.EMAIL_PASS2;
 
         var transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -47,18 +46,6 @@ Router.post('/', [
 
         const authCode = Math.floor(100000 + Math.random() * 900000);
         authCodeCheck = authCode;
-        // localStorage.setItem('authcode',authCode);
-
-        // const response = await fetch('https://gmail.googleapis.com/gmail/v1/users/[gdhruv260@gmail.com]/drafts/send?key=[322910767416-s4msuk4ea4q7dl2ihs01c0sbaf49p85h.apps.googleusercontent.com] HTTP/1.1', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer [322910767416-s4msuk4ea4q7dl2ihs01c0sbaf49p85h.apps.googleusercontent.com]',
-
-        //     },
-        //     // body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password })
-        // });
-
  
         var mailOptions = {
             from: 'developer.authify@gmail.com',
@@ -132,8 +119,16 @@ Router.post('/verify', [
                 bcrypt.genSalt(10, async (err, salt) => {
                     bcrypt.hash(req.body.password, salt, async (err, hashedPassword) => {
                         try {
+                            const date = new Date()
+                            const dnt = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
+                            const sub = 'Attention Required !!, Password for your account is recently changed'
+
+                            const msg = `Hi There,\n\nRecently, Password of your account is changed on ${dnt}.\nIf not done by you please click here.\n\nRegards\nAuthify`
+
+                            authifyMailer(req.body.email, sub, msg);
+
                             await User.updateOne({ email: req.body.email }, { password: hashedPassword })
-                            res.json("Verifed Successfully \n Enter New Password")
+                            res.json({success: true})
                             await PassValidator.deleteOne({ email: req.body.email });
                         }
 

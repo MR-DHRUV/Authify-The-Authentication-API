@@ -10,22 +10,63 @@ Complete Authenticaation solution
 - Fetching User details from JWT token.
 - Reseting Password via OTP on corresponding Email address.
 - Authentication using Google.
+- **Instant Updates on email for all account activity like login ,  change of password, and etc**
 
 ## Endpoints
 
 ### Signup
 
+#### I Sending OTP to given email address:
+
 ```http
-  POST https://api-authify.herokuapp.com/auth/signup
+  POST https://api-authify.herokuapp.com/auth/signup/email
 ```
 
 #### Body :
 
 | Parameter  | Type     | Description                             |
 | :--------- | :------- | :-------------------------------------- |
-| `name`     | `string` | **Required**. Name (min length : 3)     |
-| `email`    | `string` | **Required**. Email add                 |
-| `password` | `string` | **Required**. password (min length : 8) |
+| `email`    | `string` | **Required** Email Address                 |
+
+#### Usage
+
+javascript:
+
+```javascript
+const createNewUserViaEmail = await fetch('https://api-authify.herokuapp.auth/signup/email', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email: credentials.email})
+});
+const json = await createNewUserViaEmail.json();
+console.log(json);
+```
+
+#### response
+
+```javascript
+{
+  "success": true,
+}
+
+```
+
+#### II Verivication and creation of a new user:
+
+```http
+  POST https://api-authify.herokuapp.com/auth/signup/email/verify
+```
+
+#### Body :
+
+| Parameter  | Type     | Description                             |
+| :--------- | :------- | :-------------------------------------- |
+| `name`     | `string` | **Required** Name (min length : 3)     |
+| `email`    | `string` | **Required** Email add                 |
+| `password` | `string` | **Required** password (min length : 8) |
+| `authcode` | `number` | **Required** password (length : 6) |
 
 #### Usage
 
@@ -43,6 +84,7 @@ const createNewUser = await fetch(
       name: credentials.name,
       email: credentials.email,
       password: credentials.password,
+      authcode: credentials.authCode
     }),
   }
 );
@@ -70,8 +112,8 @@ console.log(json);
 
 | Parameter  | Type     | Description                             |
 | :--------- | :------- | :-------------------------------------- |
-| `email`    | `string` | **Required**. Email address             |
-| `password` | `string` | **Required**. password (min length : 8) |
+| `email`    | `string` | **Required** Email address             |
+| `password` | `string` | **Required** password (min length : 8) |
 
 #### Usage
 
@@ -115,8 +157,8 @@ console.log(json);
 
 | Parameter      | Type     | Description                                                                                                                                                                       |
 | :------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Content-Type` | `string` | **Required**. application/json                                                                                                                                                    |
-| `auth-token`   | `string` | **Required**. eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZDAifSwiaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc |
+| `Content-Type` | `string` | **Required** application/json                                                                                                                                                    |
+| `auth-token`   | `string` | **Required** eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1..... |
 
 #### Usage
 
@@ -153,6 +195,7 @@ console.log(json);
 ```
 
 ### Reseting password
+Can be used for both resetting the password and updation of password
 
 #### I : Sending OTP to corresponding Email address
 
@@ -342,12 +385,97 @@ const googleAuth = (uri)=>{
 
 ```
 
+
+### Delete Account
+
+#### I Sending Otp to given email address:
+
+```http
+  POST https://api-authify.herokuapp.com/auth/delete/email
+```
+
+#### Body :
+
+| Parameter  | Type     | Description                             |
+| :--------- | :------- | :-------------------------------------- |
+| `email`    | `string` | **Required** Email address             |
+
+#### Usage
+
+javascript:
+
+```javascript
+const deleteGen = await fetch('https://api-authify.herokuapp.com/autdelete/email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: user.email })
+    })
+
+    const response = await deleteGen.json();
+    console.log(response)
+```
+
+#### response
+
+```javascript
+{
+  "success": true,
+}
+
+```
+
+
+#### II OTP verification and account deletion:
+
+```http
+  POST https://api-authify.herokuapp.com/auth/delete/email
+```
+
+#### Body :
+
+| Parameter  | Type     | Description                             |
+| :--------- | :------- | :-------------------------------------- |
+| `email`    | `string` | **Required** Email address             |
+| `authcode`    | `number` | **Required** OTP (6 digit)           |
+| `password`    | `string` | **Required** Password (min-length : 8)            |
+
+#### Usage
+
+javascript:
+
+```javascript
+const response = await fetch('https://api-authify.herokuapp.com/auth/delete/email/verify', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: user.email, authcode: Number(credentials.   verifyToken), password: credentials.password })
+  })
+
+const response = await deleteGen.json();
+console.log(response)
+```
+
+#### response
+
+```javascript
+{
+  "success": true,
+}
+
+```
+
 ## Support
 
 For any issue or query I'll love to hear at : developer.authify@gmail.com
 
+**We love contributions ❤️** <br>Contribute to this api <a href="https://github.com/MR-DHRUV/Authify-The-Authentication-API" target="_blank" rel="noopener noreferrer">here</a>
 
-## Contact Me 
+
+## Contact Me <br>
+
 
 <a href="https://www.linkedin.com/in/dhruv-gupta-55034a228/" target="_blank" rel="noopener noreferrer">
   <img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" alt="" width="50px" height="50px">
@@ -361,5 +489,3 @@ For any issue or query I'll love to hear at : developer.authify@gmail.com
   <img src="https://cdn-icons-png.flaticon.com/512/60/60543.png" alt="" width="50px" height="50px">
 </a>
 
-#
-<img src="/public/Authify(1).png" alt="" height="200px">

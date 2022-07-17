@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authify</title>
+    <link crossorigin="anonymous" media="all"
+        integrity="sha512-ksfTgQOOnE+FFXf+yNfVjKSlEckJAdufFIYGK7ZjRhWcZgzAGcmZqqArTgMLpu90FwthqcCX4ldDgKXbmVMeuQ=="
+        rel="stylesheet" href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
+
+    <link crossorigin="anonymous" media="all"
+        integrity="sha512-EAhBCLIJ/pXHG3Y6yQhs9s53SHV80sjJ+yCwlQtfv7LaVkD+VoEuZBZ5betQJFUNj/5qBSfZk5GFtazEDzWLAg=="
+        rel="stylesheet" href="https://github.githubassets.com/assets/primer-10084108b209.css" />
+    <link crossorigin="anonymous" media="all"
+        integrity="sha512-A21HqAhL/OxKOsFNA4IZins9rOVeIzPtwnllQ+2sh+mWcSKW4543tZU/ZGFLeCAE0q6BmKwaoOmBGu3rkYA1MQ=="
+        rel="stylesheet" href="https://github.githubassets.com/assets/global-036d47a8084b.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon(1).ico">
+    <style>
+        .content {
+            /* margin-top: 100px; */
+            padding: 15px !important;
+        }
+
+        .pl-ii {
+            background-color: rgb(255, 255, 255) !important;
+            color: #d43f4a !important;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            background-color: #e45853;
+            min-height: 280px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .foot-logo {
+            height: 150px;
+            width: 470px;
+        }
+
+        .social {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            margin-bottom: 20px;
+        }
+
+        .mya {
+            padding: 1rem;
+        }
+
+        .mya:hover {
+            filter: grayscale(100%);
+        }
+
+        .myh1 {
+            font-size: 3rem !important;
+            border-bottom: 0px !important;
+            margin-bottom: 0px !important;
+            padding-bottom: 0px !important;
+        }
+
+        .mainHead {
+            border-bottom: 0px !important;
+            display: flex;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .mynav {
+            height: 110px;
+            padding: 10px;
+            width: 100% !important;
+            background-color: #e45853;
+            margin: 0px !important;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 9999 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mainsub {
+            margin-top: 5px !important;
+            padding-top: 0px !important;
+        }
+
+        .myul {
+            list-style: none;
+            padding-left: 0px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="mynav">
+        <img src="/Authify(1).png" alt="" height="90px">
+    </nav>
+
+
+    <div class="content">
+
+
+        <readme-toc>
+
+            <div id="readme"
+                class="Box md js-code-block-container js-code-nav-container js-tagsearch-file Box--responsive"
+                data-tagsearch-path="README.md" data-tagsearch-lang="Markdown">
+
+
+                <div data-target="readme-toc.content" class="Box-body px-5 pb-5">
+                    <article class="markdown-body entry-content container-lg" itemprop="text">
+                        <h1 class="myh1" dir="auto"><a id="user-content-authify--the-authentication-api" class="anchor"
+                                aria-hidden="true" href="#authify--the-authentication-api"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Authify : The Authentication API<h2 class="mainsub">Documentation</h2>
+                        </h1>
+
+                        <ul class="myul" dir="auto">
+                            <li>✅Reliable Bcrypt hashing algorithm with industry standard salting <sup>1</sup> </li>
+                            <li>✅Mongo based database <sup>2</sup> </li>
+                            <li>✅256 bit encryption used to sign JWT tokens <sup>3</sup> </li>
+                            <li>✅Lightning Fast <sup>4</sup></li>
+                            <li>✅Low data consumption <sup>5</sup></li>
+                        </ul>
+                        <p dir="auto"></p>
+                        <h2 dir="auto"><a id="user-content-features" class="anchor" aria-hidden="true"
+                                href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Services</h2>
+                        <ul dir="auto">
+                            <li>Signup using Email and generation of unique JWT token.</li>
+                            <li>Signin</li>
+                            <li>Fetching User details from JWT token.</li>
+                            <li>Reseting Password via OTP on corresponding Email address.
+                            </li>
+                            <li>Authentication using Google.</li>
+                        </ul>
+                        <h2 dir="auto"><a id="user-content-endpoints" class="anchor" aria-hidden="true"
+                                href="#endpoints"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Endpoints</h2>
+                        <h3 dir="auto"><a id="user-content-signup" class="anchor" aria-hidden="true" href="#signup"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Signup</h3>
+                        <div class="highlight highlight-source-httpspec notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="  POST https://api-authify.herokuapp.com/auth/signup">
+                            <pre>  <span class="pl-ii">POST https://api-authify.herokuapp.com/auth/signup</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-body-" class="anchor" aria-hidden="true" href="#body-"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Body :</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="left">Parameter</th>
+                                    <th align="left">Type</th>
+                                    <th align="left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><code>name</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>. Name (min
+                                        length : 3)</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><code>email</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>. Email add
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><code>password</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>. password
+                                        (min length : 8)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 dir="auto"><a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Usage</h4>
+                        <p dir="auto">javascript:</p>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="const createNewUser = await fetch(
+&quot;https://api-authify.herokuapp.com/auth/signup&quot;,
+{
+method: &quot;POST&quot;,
+headers: {
+&quot;Content-Type&quot;: &quot;application/json&quot;,
+},
+body: JSON.stringify({
+name: credentials.name,
+email: credentials.email,
+password: credentials.password,
+}),
+}
+);
+const response = await createNewUser.json();
+console.log(json);">
+                            <pre><span class="pl-k">const</span> <span class="pl-s1">createNewUser</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span>
+<span class="pl-s">"https://api-authify.herokuapp.com/auth/signup"</span><span class="pl-kos">,</span>
+<span class="pl-kos">{</span>
+<span class="pl-c1">method</span>: <span class="pl-s">"POST"</span><span class="pl-kos">,</span>
+<span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
+<span class="pl-s">"Content-Type"</span>: <span class="pl-s">"application/json"</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-c1">body</span>: <span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+<span class="pl-c1">name</span>: <span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">name</span><span class="pl-kos">,</span>
+<span class="pl-c1">email</span>: <span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">email</span><span class="pl-kos">,</span>
+<span class="pl-c1">password</span>: <span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">password</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span>
+<span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">createNewUser</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">json</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-response" class="anchor" aria-hidden="true"
+                                href="#response"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>response</h4>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="{
+&quot;success&quot;: true,
+&quot;authToken&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZDAifSwiaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc&quot;
+}
+">
+                            <pre><span class="pl-kos">{</span>
+<span class="pl-s">"success"</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span>
+<span class="pl-s">"authToken"</span>: <span class="pl-s">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZDAifSwiaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc"</span>
+<span class="pl-kos">}</span></pre>
+                        </div>
+                        <h3 dir="auto"><a id="user-content-signin" class="anchor" aria-hidden="true" href="#signin"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Signin</h3>
+                        <div class="highlight highlight-source-httpspec notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="  POST https://api-authify.herokuapp.com/auth/signin">
+                            <pre>  <span class="pl-ii">POST https://api-authify.herokuapp.com/auth/signin</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-body--1" class="anchor" aria-hidden="true"
+                                href="#body--1"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Body :</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="left">Parameter</th>
+                                    <th align="left">Type</th>
+                                    <th align="left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><code>email</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>. Email
+                                        address</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><code>password</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>. password
+                                        (min length : 8)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 dir="auto"><a id="user-content-usage-1" class="anchor" aria-hidden="true"
+                                href="#usage-1"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Usage</h4>
+                        <p dir="auto">javascript:</p>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="const signInUser = await fetch(
+&quot;https://api-authify.herokuapp.com/auth/signin&quot;,
+{
+method: &quot;POST&quot;,
+headers: {
+&quot;Content-Type&quot;: &quot;application/json&quot;,
+},
+body: JSON.stringify({
+email: credentials.email,
+password: credentials.password,
+}),
+}
+);
+const response = await signInUser.json();
+console.log(json);">
+                            <pre><span class="pl-k">const</span> <span class="pl-s1">signInUser</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span>
+<span class="pl-s">"https://api-authify.herokuapp.com/auth/signin"</span><span class="pl-kos">,</span>
+<span class="pl-kos">{</span>
+<span class="pl-c1">method</span>: <span class="pl-s">"POST"</span><span class="pl-kos">,</span>
+<span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
+<span class="pl-s">"Content-Type"</span>: <span class="pl-s">"application/json"</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-c1">body</span>: <span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+<span class="pl-c1">email</span>: <span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">email</span><span class="pl-kos">,</span>
+<span class="pl-c1">password</span>: <span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">password</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span>
+<span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">signInUser</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">json</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-response-1" class="anchor" aria-hidden="true"
+                                href="#response-1"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>response</h4>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="{
+&quot;success&quot;: true,
+&quot;authToken&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZDAifSwiaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc&quot;
+}
+">
+                            <pre><span class="pl-kos">{</span>
+<span class="pl-s">"success"</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span>
+<span class="pl-s">"authToken"</span>: <span class="pl-s">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZDAifSwiaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc"</span>
+<span class="pl-kos">}</span></pre>
+                        </div>
+                        <h3 dir="auto"><a id="user-content-fetch-user-details-from-token--verification" class="anchor"
+                                aria-hidden="true" href="#fetch-user-details-from-token--verification"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Fetch User details from token \ Verification</h3>
+                        <div class="highlight highlight-source-httpspec notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="  POST https://api-authify.herokuapp.com/auth/verifyuser">
+                            <pre>  <span class="pl-ii">POST https://api-authify.herokuapp.com/auth/verifyuser</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-header-" class="anchor" aria-hidden="true"
+                                href="#header-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Header :</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="left">Parameter</th>
+                                    <th align="left">Type</th>
+                                    <th align="left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><code>Content-Type</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>.
+                                        application/json</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><code>auth-token</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>.
+                                        eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZDAifSwiaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 dir="auto"><a id="user-content-usage-2" class="anchor" aria-hidden="true"
+                                href="#usage-2"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Usage</h4>
+                        <p dir="auto">javascript:</p>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="const getUser = await fetch(
+&quot;https://api-authify.herokuapp.com/auth/verifyuser&quot;,
+{
+method: &quot;POST&quot;,
+headers: {
+&quot;Content-Type&quot;: &quot;application/json&quot;,
+&quot;auth-token&quot;:
+&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZDAifSwiaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc&quot;,
+},
+}
+);
+const response = await getUser.json();
+console.log(json);">
+                            <pre><span class="pl-k">const</span> <span class="pl-s1">getUser</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span>
+<span class="pl-s">"https://api-authify.herokuapp.com/auth/verifyuser"</span><span class="pl-kos">,</span>
+<span class="pl-kos">{</span>
+<span class="pl-c1">method</span>: <span class="pl-s">"POST"</span><span class="pl-kos">,</span>
+<span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
+<span class="pl-s">"Content-Type"</span>: <span class="pl-s">"application/json"</span><span class="pl-kos">,</span>
+<span class="pl-s">"auth-token"</span>:
+<span class="pl-s">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZDAifSwiaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc"</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span>
+<span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">getUser</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">json</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-response-2" class="anchor" aria-hidden="true"
+                                href="#response-2"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>response</h4>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="{
+&quot;_id&quot;: &quot;629c7f3aef3106887a2acdd0&quot;,
+&quot;name&quot;: &quot;user&quot;,
+&quot;email&quot;: &quot;userEmail@fudnef.com&quot;,
+&quot;googleId&quot;: null,
+&quot;date&quot;: &quot;2022-06-05T10:02:34.938Z&quot;,
+&quot;__v&quot;: 0
+}
+">
+                            <pre><span class="pl-kos">{</span>
+<span class="pl-s">"_id"</span>: <span class="pl-s">"629c7f3aef3106887a2acdd0"</span><span class="pl-kos">,</span>
+<span class="pl-s">"name"</span>: <span class="pl-s">"user"</span><span class="pl-kos">,</span>
+<span class="pl-s">"email"</span>: <span class="pl-s">"userEmail@fudnef.com"</span><span class="pl-kos">,</span>
+<span class="pl-s">"googleId"</span>: <span class="pl-c1">null</span><span class="pl-kos">,</span>
+<span class="pl-s">"date"</span>: <span class="pl-s">"2022-06-05T10:02:34.938Z"</span><span class="pl-kos">,</span>
+<span class="pl-s">"__v"</span>: <span class="pl-c1">0</span>
+<span class="pl-kos">}</span></pre>
+                        </div>
+                        <h3 dir="auto"><a id="user-content-reseting-password" class="anchor" aria-hidden="true"
+                                href="#reseting-password"><svg class="octicon octicon-link" viewBox="0 0 16 16"
+                                    version="1.1" width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Reseting password</h3>
+                        <h4 dir="auto"><a id="user-content-i--sending-otp-to-corresponding-email-address" class="anchor"
+                                aria-hidden="true" href="#i--sending-otp-to-corresponding-email-address"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>I : Sending OTP to corresponding Email address
+                        </h4>
+                        <div class="highlight highlight-source-httpspec notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="  POST https://api-authify.herokuapp.com/fogotpassword">
+                            <pre>  <span class="pl-ii">POST https://api-authify.herokuapp.com/fogotpassword</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-body--2" class="anchor" aria-hidden="true"
+                                href="#body--2"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Body :</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="left">Parameter</th>
+                                    <th align="left">Type</th>
+                                    <th align="left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><code>email</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>. Email
+                                        address</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 dir="auto"><a id="user-content-usage-3" class="anchor" aria-hidden="true"
+                                href="#usage-3"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Usage</h4>
+                        <p dir="auto">javascript:</p>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="const sendMail = await fetch(
+&quot;https://api-authify.herokuapp.com/fogotpassword&quot;,
+{
+method: &quot;POST&quot;,
+headers: {
+&quot;Content-Type&quot;: &quot;application/json&quot;,
+},
+body: JSON.stringify({ email: credentials.email }),
+}
+);
+
+const response = await sendMail.json();
+console.log(response);">
+                            <pre><span class="pl-k">const</span> <span class="pl-s1">sendMail</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span>
+<span class="pl-s">"https://api-authify.herokuapp.com/fogotpassword"</span><span class="pl-kos">,</span>
+<span class="pl-kos">{</span>
+<span class="pl-c1">method</span>: <span class="pl-s">"POST"</span><span class="pl-kos">,</span>
+<span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
+<span class="pl-s">"Content-Type"</span>: <span class="pl-s">"application/json"</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-c1">body</span>: <span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">email</span>: <span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">email</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span>
+<span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">sendMail</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">response</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-response-3" class="anchor" aria-hidden="true"
+                                href="#response-3"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>response</h4>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="{
+&quot;success&quot;: true,
+&quot;message&quot;: &quot;Email Send&quot;
+}
+">
+                            <pre><span class="pl-kos">{</span>
+<span class="pl-s">"success"</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span>
+<span class="pl-s">"message"</span>: <span class="pl-s">"Email Send"</span>
+<span class="pl-kos">}</span></pre>
+                        </div>
+                        <h3 dir="auto"><a id="user-content-ii--otp-verification-and-updating-new-password"
+                                class="anchor" aria-hidden="true"
+                                href="#ii--otp-verification-and-updating-new-password"><svg class="octicon octicon-link"
+                                    viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>II : OTP verification and updating new password
+                        </h3>
+                        <div class="highlight highlight-source-httpspec notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="  POST https://api-authify.herokuapp.com/fogotpassword/verify">
+                            <pre>  <span class="pl-ii">POST https://api-authify.herokuapp.com/fogotpassword/verify</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-body--3" class="anchor" aria-hidden="true"
+                                href="#body--3"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Body :</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="left">Parameter</th>
+                                    <th align="left">Type</th>
+                                    <th align="left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><code>email</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>. Email
+                                        address</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><code>authcode</code></td>
+                                    <td align="left"><code>number</code></td>
+                                    <td align="left"><strong>Required</strong>. OTP (6
+                                        digit)</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><code>password</code></td>
+                                    <td align="left"><code>string</code></td>
+                                    <td align="left"><strong>Required</strong>. new password
+                                        (min length : 8)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 dir="auto"><a id="user-content-usage-4" class="anchor" aria-hidden="true"
+                                href="#usage-4"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Usage</h4>
+                        <p dir="auto">javascript:</p>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="const changePassword = await fetch(
+&quot;https://api-authify.herokuapp.com/fogotpassword/verify&quot;,
+{
+method: &quot;POST&quot;,
+headers: {
+&quot;Content-Type&quot;: &quot;application/json&quot;,
+},
+body: JSON.stringify({
+email: credentials.email,
+authcode: Number(credentials.OTP),
+password: credentials.password,
+}),
+}
+);
+
+const response = await changePassword.json();">
+                            <pre><span class="pl-k">const</span> <span class="pl-s1">changePassword</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span>
+<span class="pl-s">"https://api-authify.herokuapp.com/fogotpassword/verify"</span><span class="pl-kos">,</span>
+<span class="pl-kos">{</span>
+<span class="pl-c1">method</span>: <span class="pl-s">"POST"</span><span class="pl-kos">,</span>
+<span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
+<span class="pl-s">"Content-Type"</span>: <span class="pl-s">"application/json"</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-c1">body</span>: <span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+<span class="pl-c1">email</span>: <span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">email</span><span class="pl-kos">,</span>
+<span class="pl-c1">authcode</span>: <span class="pl-v">Number</span><span class="pl-kos">(</span><span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">OTP</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+<span class="pl-c1">password</span>: <span class="pl-s1">credentials</span><span class="pl-kos">.</span><span class="pl-c1">password</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span>
+<span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">changePassword</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-response-4" class="anchor" aria-hidden="true"
+                                href="#response-4"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>response</h4>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="{
+&quot;success&quot; : true ,
+&quot;msg&quot; : &quot;Password Updated&quot;
+}
+">
+                            <pre><span class="pl-kos">{</span>
+<span class="pl-s">"success"</span> : <span class="pl-c1">true</span> <span class="pl-kos">,</span>
+<span class="pl-s">"msg"</span> : <span class="pl-s">"Password Updated"</span>
+<span class="pl-kos">}</span></pre>
+                        </div>
+                        <h3 dir="auto"><a id="user-content-authentication-with-google" class="anchor" aria-hidden="true"
+                                href="#authentication-with-google"><svg class="octicon octicon-link" viewBox="0 0 16 16"
+                                    version="1.1" width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Authentication with Google</h3>
+                        <p dir="auto">In order to make google based authentications seemless
+                            and secure, we use unique endpoint for every user to fetch
+                            corresponting token once user have successfully loggedin on
+                            google's Oauth authentication screen</p>
+                        <h4 dir="auto"><a
+                                id="user-content-i-initilizeation-and-redirection-to-googles-oauth-authentication-screen"
+                                class="anchor" aria-hidden="true"
+                                href="#i-initilizeation-and-redirection-to-googles-oauth-authentication-screen"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>I Initilizeation and Redirection to google's Oauth
+                            authentication screen</h4>
+                        <p dir="auto">So to initialize the process, a random hash generated
+                            by any algoridhm is send to server by client which has to be
+                            save temporarily by the cient for further process</p>
+                        <div class="highlight highlight-source-httpspec notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="  PUT https://api-authify.herokuapp.com/auth/googlecontext/:URI">
+                            <pre>  <span class="pl-ii">PUT https://api-authify.herokuapp.com/auth/googlecontext/:URI</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-usage-5" class="anchor" aria-hidden="true"
+                                href="#usage-5"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Usage</h4>
+                        <p dir="auto">javascript:</p>
+                        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="&lt;!-- Redirection to Oauth screen and trigger initialization --&gt;
+&lt;a href='https://api-authify.herokuapp.com/auth/google' target='_blank' onClick={gAuthInit} &gt;Continue with Google&lt;/Link&gt;
+
+">
+                            <pre><span class="pl-c">&lt;!-- Redirection to Oauth screen and trigger initialization --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">a</span> <span class="pl-c1">href</span>='<span class="pl-s">https://api-authify.herokuapp.com/auth/google</span>' <span class="pl-c1">target</span>='<span class="pl-s">_blank</span>' <span class="pl-c1">onClick</span>=<span class="pl-s">{gAuthInit}</span> <span class="pl-kos">&gt;</span>Continue with Google<span class="pl-kos">&lt;/</span><span class="pl-ent">Link</span><span class="pl-kos">&gt;</span>
+</pre>
+                        </div>
+                        <p dir="auto">Install with npm</p>
+                        <div class="highlight highlight-source-shell notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="npm i md5
+">
+                            <pre>npm i md5
+</pre>
+                        </div>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="import md5
+
+const gAuthInit = ()=&gt;{
+
+const authCode = Math.floor(100000 + Math.random() * 90000000); //generate a random long integer
+const uri = md5(authCode);
+
+const preConnect = await fetch(`https://api-authify.herokuapp.com/auth/googlecontext/:${uri}`, {
+method: 'PUT'
+})
+
+const preConnectResponse = await preConnect.json();
+console.log(preConnectResponse);
+if(preConnectResponse.success == true){
+googleAuth(uri)
+}
+
+}
+">
+                            <pre><span class="pl-k">import</span> <span class="pl-s1">md5</span>
+
+<span class="pl-k">const</span> <span class="pl-en">gAuthInit</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-c1">=&gt;</span><span class="pl-kos">{</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">authCode</span> <span class="pl-c1">=</span> <span class="pl-v">Math</span><span class="pl-kos">.</span><span class="pl-en">floor</span><span class="pl-kos">(</span><span class="pl-c1">100000</span> <span class="pl-c1">+</span> <span class="pl-v">Math</span><span class="pl-kos">.</span><span class="pl-en">random</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">*</span> <span class="pl-c1">90000000</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">//generate a random long integer</span>
+<span class="pl-k">const</span> <span class="pl-s1">uri</span> <span class="pl-c1">=</span> <span class="pl-en">md5</span><span class="pl-kos">(</span><span class="pl-s1">authCode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">preConnect</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span><span class="pl-s">`https://api-authify.herokuapp.com/auth/googlecontext/:<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">uri</span><span class="pl-kos">}</span></span>`</span><span class="pl-kos">,</span> <span class="pl-kos">{</span>
+<span class="pl-c1">method</span>: <span class="pl-s">'PUT'</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">preConnectResponse</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">preConnect</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">preConnectResponse</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">preConnectResponse</span><span class="pl-kos">.</span><span class="pl-c1">success</span> <span class="pl-c1">==</span> <span class="pl-c1">true</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
+<span class="pl-en">googleAuth</span><span class="pl-kos">(</span><span class="pl-s1">uri</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-kos">}</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-response-5" class="anchor" aria-hidden="true"
+                                href="#response-5"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>response</h4>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="{
+&quot;success&quot;: true
+}
+">
+                            <pre><span class="pl-kos">{</span>
+<span class="pl-s">"success"</span>: <span class="pl-c1">true</span>
+<span class="pl-kos">}</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-ii-fetching-token-on-successfull-login" class="anchor"
+                                aria-hidden="true" href="#ii-fetching-token-on-successfull-login"><svg
+                                    class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
+                                    height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>II Fetching Token on successfull login</h4>
+                        <p dir="auto">Fetching token from unique endpoint</p>
+                        <div class="highlight highlight-source-httpspec notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="  GET `https://api-authify.herokuapp.com/auth/g/user/${uri}`">
+                            <pre>  <span class="pl-ii">GET `https://api-authify.herokuapp.com/auth/g/user/${uri}`</span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-usage-6" class="anchor" aria-hidden="true"
+                                href="#usage-6"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Usage</h4>
+                        <p dir="auto">javascript:</p>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="const googleAuth = (uri)=&gt;{
+
+let data = undefined;
+
+while (data === undefined || data === null) {
+const response = await fetch(`https://api-authify.herokuapp.com/auth/g/user/${uri}`, {
+method: 'GET'
+})
+
+const response = await response.json()
+console.log(response)
+}
+">
+                            <pre><span class="pl-k">const</span> <span class="pl-en">googleAuth</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">uri</span><span class="pl-kos">)</span><span class="pl-c1">=&gt;</span><span class="pl-kos">{</span>
+
+<span class="pl-k">let</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-c1">undefined</span><span class="pl-kos">;</span>
+
+<span class="pl-k">while</span> <span class="pl-kos">(</span><span class="pl-s1">data</span> <span class="pl-c1">===</span> <span class="pl-c1">undefined</span> <span class="pl-c1">||</span> <span class="pl-s1">data</span> <span class="pl-c1">===</span> <span class="pl-c1">null</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span><span class="pl-s">`https://api-authify.herokuapp.com/auth/g/user/<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">uri</span><span class="pl-kos">}</span></span>`</span><span class="pl-kos">,</span> <span class="pl-kos">{</span>
+<span class="pl-c1">method</span>: <span class="pl-s">'GET'</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-en">json</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">response</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span><span class="pl-kos"></span></pre>
+                        </div>
+                        <h4 dir="auto"><a id="user-content-response-6" class="anchor" aria-hidden="true"
+                                href="#response-6"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>response</h4>
+                        <div class="highlight highlight-source-js notranslate position-relative overflow-auto"
+                            data-snippet-clipboard-copy-content="{
+&quot;success&quot;: true,
+&quot;authToken&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZsgggegieaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc&quot;
+}
+">
+                            <pre><span class="pl-kos">{</span>
+<span class="pl-s">"success"</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span>
+<span class="pl-s">"authToken"</span>: <span class="pl-s">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2MjljN2YzYWVmMzEwNjg4N2EyYWNkZsgggegieaWF0IjoxNjU0NDIzMzU1fQ.R1rX4sRHv-o3gDWT3XqtobYEKeYRmyvA8ZLpveobuGc"</span>
+<span class="pl-kos">}</span></pre>
+                        </div>
+                        <h2 dir="auto"><a id="user-content-support" class="anchor" aria-hidden="true"
+                                href="#support"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1"
+                                    width="16" height="16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+                                    </path>
+                                </svg></a>Support</h2>
+                        <p dir="auto">For any issue or query I'll love to hear at : <a
+                                href="mailto:developer.authify@gmail.com">developer.authify@gmail.com</a>
+                        </p>
+                        <h4 dir="auto">We love contribution❤️</h4>
+                        <p dir="auto">Contribute to this API : <a
+                                href="https://github.com/MR-DHRUV/Authify-The-Authentication-API" target="_blank"
+                                rel="noopener noreferrer">here</a>
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+        </readme-toc>
+    </div>
+    <footer>
+        <div class="social">
+            <a class="mya" href="https://github.com/MR-DHRUV" target="_blank" rel="noopener noreferrer">
+                <img src="/github(1).png" alt="" srcset="" height="50px" width="50px">
+            </a>
+            <a class="mya" href="https://www.linkedin.com/in/dhruv-gupta-55034a228/" target="_blank"
+                rel="noopener noreferrer">
+                <img src="/linkedin(1).png" alt="" srcset="" height="50px" width="50px">
+            </a>
+            <a class="mya" href="mailto:developer.authify@gmail.com" target="_blank" rel="noopener noreferrer">
+                <img src="/gmail-logo.png" alt="" srcset="" height="50px" width="50px">
+            </a>
+        </div>
+        <img class="foot-logo" src="/Authify(1).png" alt="">
+    </footer>
+
+</body>
+</html>

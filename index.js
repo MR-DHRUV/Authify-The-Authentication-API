@@ -5,7 +5,7 @@ const path = require('path')
 const cors = require('cors')
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 5000;
 const User = require('./models/User')
 const passport = require('passport');
 const bodyparser = require('body-parser')
@@ -13,6 +13,64 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session')
 const jwt = require('jsonwebtoken') // generates a token to identify user,sort of cookie 
 const JWT_SECRET = process.env.JWT_SECRET; // for signing web token
+var http = require("http");
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+var nodemailer = require('nodemailer');
+const mailPass = process.env.EMAIL_PASS2;
+
+
+
+
+setInterval(function() {
+    http.get("http://api-authify.herokuapp.com/awake");
+},1000); // every 5 minutes (300000)
+
+
+const authifyMailer = (to, sub, body) => {
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'developer.authify@gmail.com',
+            pass: mailPass
+        }
+    });
+
+    var mailOptions = {
+        from: 'developer.authify@gmail.com',
+        to: to,
+        subject: sub,
+        text: body,
+    };
+
+    try {
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+                res.status(200).json({ success: true });
+                return true
+            }
+        });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Some error occured");
+    }
+
+}
+
+
+const authifyReminder = async(time,to,sub,body)=>{
+    
+    sleep((time)).then(() => {
+        console.log('In sleep');
+        authifyMailer(to, sub,body);
+    })
+
+}
+module.exports =  authifyReminder
 
 
 let gProfile;
@@ -127,8 +185,6 @@ passport.use(new GoogleStrategy({
 ));
 
 
-
-
 app.use(cors());
 app.use(express.json());
 
@@ -136,6 +192,7 @@ app.use(express.json());
 app.use('/auth', require('./routes/auth.js'))
 app.use('/notes', require('./routes/notes.js'));
 app.use('/fogotpassword', require('./routes/forgotpass.js'));
+app.use('/reminder', require('./routes/reminder.js'));
 // app.use('/api/auth/google',require('./routes/google'));
 
 app.get('/auth/google',
@@ -198,6 +255,18 @@ const uriRender = (muri) => {
 
 app.get('/thankyou',(req,res)=>{
     res.render('thankyou')
+})
+
+app.get('/awake',(req,res)=>{
+    // res.sendFile('/views/test2.html')
+    // res.sendFile(path.join(__dirname+'/views/test2.html'));
+    res.status(200).send("I am awake")
+})
+
+app.get('/',(req,res)=>{
+    // res.sendFile('/views/test2.html')
+    // res.sendFile(path.join(__dirname+'/views/test2.html'));
+    res.redirect('https://mr-dhruv.github.io/Authify-Docx/')
 })
 
 

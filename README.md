@@ -408,7 +408,7 @@ const googleAuth = (uri)=>{
 javascript:
 
 ```javascript
-const deleteGen = await fetch('https://api-authify.azurewebsites.net/autdelete/email', {
+const deleteGen = await fetch('https://api-authify.azurewebsites.net/auth/delete/email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

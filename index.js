@@ -22,9 +22,10 @@ const mailPass = process.env.EMAIL_PASS2;
 
 
 
+
 // setInterval(function() {
 //     http.get("http://api-authify.herokuapp.com/awake");
-// },1000); // every 5 minutes (300000)
+// },50000); // every 5 minutes (300000)
 
 
 const authifyMailer = (to, sub, body) => {
@@ -60,7 +61,7 @@ const authifyMailer = (to, sub, body) => {
 
 }
 
-
+// For Notify Reminder service
 const authifyReminder = async (time, to, sub, body) => {
 
     sleep((time)).then(() => {
@@ -80,10 +81,13 @@ app.use(express.static('static'))
 app.use(bodyparser.urlencoded())
 
 
+app.set('view engine', 'pug')
+app.set('views', path.join(__dirname, 'views'))
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.use(express.static('static'))
 app.use(bodyparser.json()); // support json encoded bodies
 app.use(bodyparser.urlencoded({ extended: true })); // support encoded bodies
-
 
 
 app.use(session({
@@ -113,7 +117,7 @@ passport.deserializeUser(function (id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://api-authify.herokuapp.com/auth/google/hello",
+    callbackURL: "https://api-authify.azurewebsites.net/auth/google/hello",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
 
 },
@@ -126,6 +130,18 @@ passport.use(new GoogleStrategy({
                 let user = await User.findOne({ email: profile._json.email });
 
                 if (user) {
+
+                    // send login mail
+                    const dateNI = new Date();
+                    var ISToffSet = 330; //IST is 5:30; i.e. 60*5+30 = 330 in minutes 
+                    offset = ISToffSet * 60 * 1000;
+                    var date = new Date(dateNI.getTime() + offset);
+
+                    const dnt = date.getDate() + '-' + date.getMonth()+1 + '-' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
+                    const sub = 'New Login Activity'
+                    const msg = `Hi ${user.name},\n\nLogin activity for your account detected on ${dnt}\nIf not done by you please click here.\n\nRegards\nAuthify`
+                    authifyMailer(profile._json.email, sub, msg);
+
                     const paylord = {
                         user: { // <-- yeh curlybrace isliye aaya kyuki paylord ek object haii jisme user name ka ek object haii au id us user wale object ki id haii;
                             user: user.id
@@ -157,6 +173,12 @@ passport.use(new GoogleStrategy({
                         // console.log(data);
                         const authToken = jwt.sign(data, JWT_SECRET);
                         myToken = authToken;
+                        
+                        // signup mail
+                        const msg = `Hi ${req.body.name},\n\nUser registeration completed successfully.\nThanks for creating account with us.\nIf not done by you please click here\n\nRegards\nAuthify`;
+                        const sub = 'Account Registeration Successfull';
+                        authifyMailer(profile._json.email, sub, msg);
+                        
                         // console.log(authToken);
                         // res.json({ success, authToken });
                     }
@@ -185,9 +207,12 @@ app.use(express.json());
 
 // Available routes
 app.use('/auth', require('./routes/auth.js'))
+
+// For Notify 
 app.use('/notes', require('./routes/notes.js'));
 app.use('/fogotpassword', require('./routes/forgotpass.js'));
 app.use('/reminder', require('./routes/reminder.js'));
+app.use('/todo', require('./routes/todo'));
 // app.use('/api/auth/google',require('./routes/google'));
 
 app.get('/auth/google',

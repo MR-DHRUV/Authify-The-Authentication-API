@@ -220,8 +220,12 @@ Router.post('/signin', [
             const authToken = await jwt.sign(paylord, JWT_SECRET)
             // console.log(authToken);
             const success = true;
-            const date = new Date()
-            const dnt = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
+            const dateNI = new Date();
+            var ISToffSet = 330; //IST is 5:30; i.e. 60*5+30 = 330 in minutes 
+            offset = ISToffSet * 60 * 1000;
+            var date = new Date(dateNI.getTime() + offset);
+
+            const dnt = date.getDate() + '-' + date.getMonth() + 1 + '-' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
             const sub = 'New Login Activity'
             const msg = `Hi ${user.name},\n\nLogin activity for your account detected on ${dnt}\nIf not done by you please click here.\n\nRegards\nAuthify`
             authifyMailer(req.body.email, sub, msg);
@@ -386,8 +390,12 @@ Router.post('/delete/email/verify', [
                         await User.deleteOne({ email: req.body.email })
                         const success = true;
 
-                        const date = new Date()
-                        const dnt = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
+                        const dateNI = new Date();
+                        var ISToffSet = 330; //IST is 5:30; i.e. 60*5+30 = 330 in minutes 
+                        offset = ISToffSet * 60 * 1000;
+                        var date = new Date(dateNI.getTime() + offset);
+    
+                        const dnt = date.getDate() + '-' + date.getMonth()+1 + '-' + date.getFullYear() + ' at ' + date.getHours() + ':' + date.getMinutes();
                         const sub = 'New Login Activity'
 
                         const msg = `Hi ${user.name},\n\nAccount deleted on${dnt}.\n\nRegards\nAuthify`

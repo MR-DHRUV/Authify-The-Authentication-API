@@ -61,15 +61,15 @@ const authifyMailer = (to, sub, body) => {
 }
 
 
-const authifyReminder = async(time,to,sub,body)=>{
-    
+const authifyReminder = async (time, to, sub, body) => {
+
     sleep((time)).then(() => {
         console.log('In sleep');
-        authifyMailer(to, sub,body);
+        authifyMailer(to, sub, body);
     })
 
 }
-module.exports =  authifyReminder
+module.exports = authifyReminder
 
 
 let gProfile;
@@ -240,7 +240,7 @@ const uriRender = (muri) => {
             const success = true;
             console.log(authToken);
             res.json({ success, authToken });
-            myToken =  null ;
+            myToken = null;
         }
         console.log(myToken);
         // res.send("shggsh");
@@ -248,17 +248,17 @@ const uriRender = (muri) => {
 
 }
 
-app.get('/thankyou',(req,res)=>{
+app.get('/thankyou', (req, res) => {
     res.render('thankyou')
 })
 
-app.get('/awake',(req,res)=>{
+app.get('/awake', (req, res) => {
     // res.sendFile('/views/test2.html')
     // res.sendFile(path.join(__dirname+'/views/test2.html'));
     res.status(200).send("I am awake")
 })
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     // res.sendFile('/views/test2.html')
     // res.sendFile(path.join(__dirname+'/views/test2.html'));
     res.redirect('https://mr-dhruv.github.io/Authify-Docx/')

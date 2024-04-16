@@ -1,42 +1,42 @@
 require('dotenv').config()
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
-
-
-// General mailer to send notifications, can be only used inside req,res function via router
+// General mailer to send notifications
 const authifyMailer = (to, sub, body) => {
-    const mailPass = process.env.EMAIL_PASS2;
+    return new Promise((resolve, reject) => {
+        const mailPass = process.env.EMAIL_PASS2;
 
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'developer.authify@gmail.com',
-            pass: mailPass
-        }
-    });
-
-    var mailOptions = {
-        from: 'developer.authify@gmail.com',
-        to: to,
-        subject: sub,
-        text: body,
-    };
-
-    try {
-        transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email sent: ' + info.response);
-                res.status(200).json({success : true});
-                return true
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'developer.authify@gmail.com',
+                pass: mailPass
             }
         });
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).send("Some error occured");
-    }
 
+        var mailOptions = {
+            from: 'developer.authify@gmail.com',
+            to: to,
+            subject: sub,
+            text: body,
+        };
+
+        try {
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                    reject(false)
+                } else {
+                    console.log('Email sent: ' + info.response);
+                    resolve(true)
+                    return true
+                }
+            });
+        } catch (error) {
+            console.error(error.message);
+            reject(false)
+        }
+    });
 }
 
 module.exports = authifyMailer

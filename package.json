@@ -1,11 +1,12 @@
 {
-  "name": "inotebook-backend",
-  "version": "1.0.0",
-  "description": "inotebook- Your notebook on the go ",
+  "name": "authify",
+  "version": "2.0.0",
+  "description": "Secure, complete and hassle free authentication solution for your applications",
   "main": "index1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "startt": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -28,8 +29,6 @@
     "passport-google-oauth2": "^0.2.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-local-mongoose": "^7.0.0",
-    "path": "^0.12.7",
-    "pug": "^3.0.2",
-    "remove-markdown": "^0.5.0"
+    "path": "^0.12.7"
   }
 }

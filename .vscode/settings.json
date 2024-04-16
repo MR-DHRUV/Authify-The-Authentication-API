@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e2c78405-7c7f-4ca8-be79-a8112b351c46/microsoft.web/sites/subscriptions/e2c78405-7c7f-4ca8-be79-a8112b351c46/resourceGroups/api-authify/providers/Microsoft.Web/sites/api-authify",
+    "appService.deploySubpath": "."
+}

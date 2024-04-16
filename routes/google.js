@@ -1,88 +1,71 @@
-require('dotenv').config()
 const express = require('express');
-const Router = express.Router();
 const User = require('../models/User')
-
-const jwt = require('jsonwebtoken') // generates a token to identify user,sort of cookie 
-const JWT_SECRET = process.env.JWT_SECRET; // for signing web token
-
 const passport = require('passport');
-
-const bodyparser = require('body-parser')
-
-
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-
-
-
-Router.use(bodyparser.json()); // support json encoded bodies
-Router.use(bodyparser.urlencoded({ extended: true })); // support encoded bodies
-
-Router.use(passport.initialize());
-
-
-
-
+const jwt = require('jsonwebtoken')
+const JWT_SECRET = process.env.JWT_SECRET;
+const authifyMailer = require('./authifyMailer.js')
+const Router = express.Router();
+const {getCurrentDateAndTime} = require('./helper.js')
 
 passport.use(User.createStrategy());
-
-
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.CLIENT_ID,
-//     clientSecret: process.env.CLIENT_SECRET,
-//     callbackURL: "http://127.0.0.1:3000/auth/google/hello",
-//     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
-//     passReqToCallback: true
-// },
-//     function (request, accessToken, refreshToken, profile, done) {
-//         console.log(profile);
-//         User.findOrCreate({ email: profile.id }, function (err, user) {
-//             return done(err, user);
-//         });
-//     }
-// ));
-
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/google/hello",
+    callbackURL: "http://localhost:5000/auth/google/hello",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
 
-},
-    (accessToken, refreshToken, profile, cb)=>{
-        console.log('on')
-        console.log(accessToken);
-        console.log(refreshToken);
-        console.log(profile);
-        User.findOrCreate({ email: profile.id }, function (err, user) {
-            return cb(err, user);
-        });
+}, async function (accessToken, refreshToken, profile, cb) {
+    if (profile._json.email_verified == true) {
+        try {
+
+            let user = await User.findOne({ email: profile._json.email });
+            if (!user) {
+                user = await User.create({
+                    name: profile._json.name,
+                    email: profile._json.email,
+                    username: profile._json.email,
+                    password: null,
+                    googleId: profile.id,
+                })
+
+                authifyMailer(user.email, 'Account Registeration Successfull', `Hi ${user.name},\n\nUser registeration completed successfully.\nThanks for creating account with us.\nIf not done by you please click here\n\nRegards\nAuthify`);
+            }
+            else {
+                authifyMailer(user.email, 'New Login Activity', `Hi ${user.name},\n\nLogin activity for your account detected on ${getCurrentDateAndTime()}\nIf not done by you please click here.\n\nRegards\nAuthify`);
+            }
+            
+            const data = {
+                user: {
+                    user: user.id
+                }
+            }
+
+            cb(null, { authToken: jwt.sign(data, JWT_SECRET) });
+        }
+
+        catch (error) {
+            console.error(error.message);
+            cb(error, null);
+        }
     }
-));
+}));
 
-
-
-Router.get('/',
+// Redirect user back to the specified URL with authToken as query parameter
+Router.get('/', (req, res, next) => {
     passport.authenticate('google', {
-        scope:
-            ['email', 'profile']
-    }
-    )
-);
-
+        scope: ['email', 'profile'],
+        state: req.query.url // Pass the URL as state
+    })(req, res, next);
+});
 
 Router.get('/hello',
-    passport.authenticate('google', {
-        successRedirect: 'auth/google/hello',
-        failureRedirect: '/'
-    })
+    passport.authenticate('google', { session: false }),
+    (req, res) => {
+        const { authToken } = req.user;
+        const redirectUrl = `${req.query.state}?authToken=${authToken}`; // Append authToken to the provided URL
+        res.redirect(redirectUrl);
+    }
 );
 
-
-
-module.exports = Router
-
-
-
-
-
+module.exports = Router;

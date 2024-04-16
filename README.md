@@ -1,7 +1,7 @@
-# Authify : The Authentication API
 
-Secure
-Complete Authenticaation solution
+
+# Authify : The Authentication API
+Secure, complete and hassle free **authentication solution** for your applications
 
 ## Features
 
@@ -10,6 +10,7 @@ Complete Authenticaation solution
 - Fetching User details from JWT token.
 - Reseting Password via OTP on corresponding Email address.
 - Authentication using Google.
+- Deletion of account
 - **Instant Updates on email for all account activity like login ,  change of password, and etc**
 
 ## Endpoints
@@ -18,8 +19,8 @@ Complete Authenticaation solution
 
 #### I Sending OTP to given email address:
 
-```http
-  POST https://api-authify.herokuapp.com/auth/signup/email
+```js
+  POST https://api-authify.azurewebsites.net/auth/signup/email
 ```
 
 #### Body :
@@ -55,8 +56,8 @@ console.log(json);
 
 #### II Verivication and creation of a new user:
 
-```http
-  POST https://api-authify.herokuapp.com/auth/signup/email/verify
+```js
+  POST https://api-authify.azurewebsites.net/auth/signup/email/verify
 ```
 
 #### Body :
@@ -74,7 +75,7 @@ javascript:
 
 ```javascript
 const createNewUser = await fetch(
-  "https://api-authify.herokuapp.com/auth/signup",
+  "https://api-authify.azurewebsites.net/auth/signup",
   {
     method: "POST",
     headers: {
@@ -104,8 +105,8 @@ console.log(json);
 
 ### Signin
 
-```http
-  POST https://api-authify.herokuapp.com/auth/signin
+```js
+  POST https://api-authify.azurewebsites.net/auth/signin
 ```
 
 #### Body :
@@ -121,7 +122,7 @@ javascript:
 
 ```javascript
 const signInUser = await fetch(
-  "https://api-authify.herokuapp.com/auth/signin",
+  "https://api-authify.azurewebsites.net/auth/signin",
   {
     method: "POST",
     headers: {
@@ -149,8 +150,8 @@ console.log(json);
 
 ### Fetch User details from token \ Verification
 
-```http
-  POST https://api-authify.herokuapp.com/auth/verifyuser
+```js
+  POST https://api-authify.azurewebsites.net/auth/verifyuser
 ```
 
 #### Header :
@@ -166,7 +167,7 @@ javascript:
 
 ```javascript
 const getUser = await fetch(
-  "https://api-authify.herokuapp.com/auth/verifyuser",
+  "https://api-authify.azurewebsites.net/auth/verifyuser",
   {
     method: "POST",
     headers: {
@@ -199,8 +200,8 @@ Can be used for both resetting the password and updation of password
 
 #### I : Sending OTP to corresponding Email address
 
-```http
-  POST https://api-authify.herokuapp.com/fogotpassword
+```js
+  POST https://api-authify.azurewebsites.net/fogotpassword
 ```
 
 #### Body :
@@ -215,7 +216,7 @@ javascript:
 
 ```javascript
 const sendMail = await fetch(
-  "https://api-authify.herokuapp.com/fogotpassword",
+  "https://api-authify.azurewebsites.net/fogotpassword",
   {
     method: "POST",
     headers: {
@@ -241,8 +242,8 @@ console.log(response);
 
 ### II : OTP verification and updating new password
 
-```http
-  POST https://api-authify.herokuapp.com/fogotpassword/verify
+```js
+  POST https://api-authify.azurewebsites.net/fogotpassword/verify
 ```
 
 #### Body :
@@ -259,7 +260,7 @@ javascript:
 
 ```javascript
 const changePassword = await fetch(
-  "https://api-authify.herokuapp.com/fogotpassword/verify",
+  "https://api-authify.azurewebsites.net/fogotpassword/verify",
   {
     method: "POST",
     headers: {
@@ -291,7 +292,7 @@ const response = await changePassword.json();
 To authenticate with google, you need to pass your app url as a query parameter in the url. Once the user authenticates with google, the user will be redirected to the app url with the auth token as a query parameter. You can fetch the token from the url and use it for further authentication.
 
 ```http
-  PUT http://localhost:5000/auth/google?url={YOUR_APP_URL}
+  PUT https://api-authify.azurewebsites.net/auth/google?url={YOUR_APP_URL}
 ```
 
 #### Usage
@@ -299,7 +300,7 @@ To authenticate with google, you need to pass your app url as a query parameter 
 html:
 ```html
 <!-- Redirection to Oauth screen and trigger initialization -->
-<a href='https://api-authify.herokuapp.com/auth/google?url={YOUR_APP_URL}' target='_blank'>Continue with Google </a>
+<a href='https://api-authify.azurewebsites.net/auth/google?url={YOUR_APP_URL}' target='_blank'>Continue with Google </a>
 ```
 
 #### Response URL
@@ -308,12 +309,13 @@ html:
 https://www.mrdhruv.co/?authToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2NjFlODljYmJlNjgzMzc1N2FiNTUxY2YifSwiaWF0IjoxNzEzMjc3NDUyfQ.n8_WjYngosSCByfeQgtyx51hVle6p1eRY6QcdZojOSs
 ```
 
+
 ### Delete Account
 
 #### I Sending Otp to given email address:
 
-```http
-  POST https://api-authify.herokuapp.com/auth/delete/email
+```js
+  POST https://api-authify.azurewebsites.net/auth/delete/email
 ```
 
 #### Body :
@@ -327,7 +329,7 @@ https://www.mrdhruv.co/?authToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyI
 javascript:
 
 ```javascript
-const deleteGen = await fetch('https://api-authify.herokuapp.com/autdelete/email', {
+const deleteGen = await fetch('https://api-authify.azurewebsites.net/autdelete/email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -351,8 +353,8 @@ const deleteGen = await fetch('https://api-authify.herokuapp.com/autdelete/email
 
 #### II OTP verification and account deletion:
 
-```http
-  POST https://api-authify.herokuapp.com/auth/delete/email
+```js
+  POST https://api-authify.azurewebsites.net/auth/delete/email
 ```
 
 #### Body :
@@ -368,7 +370,7 @@ const deleteGen = await fetch('https://api-authify.herokuapp.com/autdelete/email
 javascript:
 
 ```javascript
-const response = await fetch('https://api-authify.herokuapp.com/auth/delete/email/verify', {
+const response = await fetch('https://api-authify.azurewebsites.net/auth/delete/email/verify', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
